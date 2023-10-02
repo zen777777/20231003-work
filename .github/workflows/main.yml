@@ -8,7 +8,17 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4.1.0
-      - name: check
+      - name: ex1 check
         run: |
           cd ex1
           egrep "世界よこんにちは" Hello.txt
+      - uses: actions/setup-python@v4
+        with:
+          cache: "pipenv"
+      - name: Run image
+        uses: tiagovrtr/actions-pipenv@v1
+      - name: ex2 check
+        run: |
+          cd ex2
+          pipenv run pytest
+      
