@@ -22,11 +22,12 @@ jobs:
           cache: "pipenv"
       - name: setup pipenv
         run: |
-          pip install pipenv
+          PATH=$HOME/.local/bin:$PATH
           cd ex2
-          pipenv install --dev
+          pip install pipenv pytest
       - name: ex2 check
         run: |
+          PATH=$HOME/.local/bin:$PATH
           cd ex2
           pipenv run pytest
-      
+
