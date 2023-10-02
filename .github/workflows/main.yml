@@ -6,6 +6,8 @@ jobs:
   ex1:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
+        uses: actions/checkout@v4.1.0
       - name: check
         run: |
           cd ex1
