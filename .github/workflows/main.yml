@@ -12,11 +12,20 @@ jobs:
         run: |
           cd ex1
           egrep "世界よこんにちは" Hello.txt
+  ex2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4.1.0
       - uses: actions/setup-python@v4
         with:
           cache: "pipenv"
-      - name: Run image
-        uses: tiagovrtr/actions-pipenv@v1
+      - name: setup pipenv
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pipenv
+          cd ex2
+          pipenv install --dev
       - name: ex2 check
         run: |
           cd ex2
