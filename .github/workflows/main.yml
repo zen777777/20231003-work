@@ -22,8 +22,7 @@ jobs:
           cache: "pipenv"
       - name: setup pipenv
         run: |
-          sudo apt-get update
-          sudo apt-get install -y pipenv
+          pip install pipenv
           cd ex2
           pipenv install --dev
       - name: ex2 check
