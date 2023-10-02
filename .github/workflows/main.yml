@@ -1,0 +1,12 @@
+name: 提出内容の確認
+on:
+  - push
+
+jobs:
+  ex1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check
+        run: |
+          cd ex1
+          egrep "世界よこんにちは" Hello.txt
